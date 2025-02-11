@@ -1,0 +1,101 @@
+body {
+  background-color: #F6F7F8;
+}
+
+.nav-header {
+  background-color: white;
+  border-radius: 70px;
+  padding: 12px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  align-items: center;
+  flex: 1
+}
+
+.col-3 {
+  flex-basis: 25%;
+}
+
+.col-6{
+  flex-basis: 50%;
+}
+
+.nav-btn-container {
+  border-left: 1px solid lightgray;
+  display:flex;
+  align-items: center;
+  padding-left: 5px;
+}
+
+.nav-setting-btn {
+  background: white;
+  border: none;
+}
+
+.nav-more-btn {
+  background: white;
+  border: none;
+  transform: rotate(90deg);
+}
+
+.m-0 {
+  margin:0;
+}
+
+.mr-1 {
+  margin-right:10px;
+}
+
+.nav-profile {
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+ justify-content: center;
+ text-align: start;
+ padding-right: 10px;
+}
+
+.patient-section {
+  width: 367px;
+  background-color: white;
+  border-radius: 16px;
+  margin-top: 25px;
+}
+
+.size-1 {
+  width: 48px;
+  height:48px;
+}
+
+.patient-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  align-items: center;
+}
+
+.scrollable-section {
+  height: 1054px;
+  overflow-y: auto;
+  border: 1px solid white;
+  padding: 10px;
+}
+
+
+.diagnosis-history-container {
+  width: 766px;
+  height: 673px;
+  background-color: white;
+  border-radius: 16px;
+  margin-left: 25px;
+}
