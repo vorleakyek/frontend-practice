@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Patients from './components/Patients';
 import DiagnosisHistory from "./components/DiagnosisHistory";
+import DiagnosticList from "./components/DiagnosticList";
+
 import { AppContext } from "./components/AppContext";
 import { getAllPatients } from '../../api';
 import './App.css';
@@ -30,7 +32,7 @@ const App = () => {
     if(isLoading === null) load();
   }),[isLoading])
 
-  if (isLoading) {
+  if (isLoading || patients.length === 0) {
     return <div>Loading ... </div>
   }
 
@@ -40,10 +42,11 @@ const App = () => {
         <Navbar />
         <div className="flex">
           <Patients />
-          <DiagnosisHistory />
+          <div>
+            <DiagnosisHistory />
+            <DiagnosticList />
+          </div>
         </div>
-
-
       </main>
     </AppContext.Provider>
 
