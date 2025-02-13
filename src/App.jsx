@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Patients from './components/Patients';
 import DiagnosisHistory from "./components/DiagnosisHistory";
 import DiagnosticList from "./components/DiagnosticList";
+import Profile from "./components/Profile";
 
 import { AppContext } from "./components/AppContext";
 import { getAllPatients } from '../../api';
@@ -40,11 +41,14 @@ const App = () => {
     <AppContext.Provider value={contextValue}>
       <main>
         <Navbar />
-        <div className="flex">
+        <div className="main-container">
           <Patients />
-          <div>
+          <div className="col-flex-1">
             <DiagnosisHistory />
             <DiagnosticList />
+          </div>
+          <div>
+            <Profile />
           </div>
         </div>
       </main>

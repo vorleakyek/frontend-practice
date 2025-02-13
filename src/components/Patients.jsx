@@ -33,7 +33,7 @@ const Patients = () => {
             <img src="/assets/search_FILL0_wght300_GRAD0_opsz24.svg" alt="search-icon" />
           </div>
         </div>
-        <div className="scrollable-section">
+        <div className="scrollable-patients-section">
           {patients?.map((patient) => <PatientRow patient={patient} key={Math.random()} />)}
         </div>
       </section>

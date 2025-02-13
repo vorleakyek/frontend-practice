@@ -8,10 +8,24 @@ body {
   padding: 12px;
 }
 
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  align-content: start;
+}
+
 .flex {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.col-flex-1 {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around;
+  height: 100vh; */
 }
 
 .flex-start{
@@ -90,7 +104,7 @@ body {
   align-items: center;
 }
 
-.scrollable-section {
+.scrollable-patients-section {
   height: 1054px;
   overflow-y: auto;
   border: 1px solid white;
@@ -98,12 +112,12 @@ body {
 }
 
 
+
 .diagnosis-history-container {
-  width: 726px;
+  width: 766px;
   /* height: 298px; */
   background-color: white;
   border-radius: 16px;
-  margin-left: 25px;
   padding:20px;
 }
 
@@ -180,26 +194,92 @@ body {
 }
 
 .Diagnostic-list-container {
-  width: 726px;
-  /* height: 298px; */
+  width: 766px;
+  height: 349px;
   background-color: white;
   border-radius: 16px;
-  margin-left: 25px;
   padding:20px;
   margin-top: 20px;
 }
 
+.table-container {
+  max-height: 290px;
+  overflow-y: auto;
+}
+
 .table-header {
   background-color:#F6F7F8;
-  width: 726px;
   height: 48px;
   border-radius: 24px;
 }
 
-.border-bottom {
-  border-bottom: 1px solid red;
+table {
+  border-collapse: collapse;
 }
 
-tbody tr {
-  border-bottom: 1px solid red; /* Adjust color as needed */
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+th,td {
+  padding: 20px;
+}
+
+thead th:first-child {
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+}
+
+thead th:last-child {
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+tbody tr:not(:last-child) {
+  border-bottom: 1px solid #F6F7F8; /* Adjust color as needed */
+}
+
+
+.profile-container {
+  width: 367px;
+  height: 740px;
+  background-color: white;
+  border-radius: 16px;
+  padding-top:25px;
+}
+
+.profile-row-info{
+  display: flex;
+  gap: 16px;
+  padding:10px;
+  align-items: center;
+}
+
+.icon-wrapper {
+  background-color: #F6F7F8;
+  width: 42px;
+  height: 42px;
+  border-radius: 100%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.center {
+  text-align: center;
+}
+
+.btn-1 {
+  background-color: #01F0D0;
+  width: 220px;
+  height: 41px;
+  border-radius: 41px;
+  border: none;
+}
+
+.mt-2{
+  margin-top: 20px;
 }

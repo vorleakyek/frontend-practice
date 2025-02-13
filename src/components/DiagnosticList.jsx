@@ -11,7 +11,7 @@ const DiagnosticList = () => {
   return(
     <section className="Diagnostic-list-container">
       <h2>Diagnostic List</h2>
-      <div>
+      <div className="table-container">
         <table>
           <thead className="table-header">
             <tr className="border-bottom">
