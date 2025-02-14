@@ -12,7 +12,7 @@ const Profile = () => {
     <div className="profile-container">
       <div className="center">
         <img src="/assets/Layer_2.png" alt="profile image" />
-        <h2>{currentPatient.name}</h2>
+        <h2 className="fs-24">{currentPatient.name}</h2>
       </div>
 
       <div className="profile-row-info">

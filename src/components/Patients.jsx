@@ -10,8 +10,8 @@ const PatientRow = ({ patient}) =>{
           <img className="size-1" src={profile_picture} alt="profile-image" />
         </div>
         <div>
-          <p className="m-0">{name}</p>
-          <p className="m-0">{gender}, {age}</p>
+          <p className="m-0 bold">{name}</p>
+          <p className="m-0 gray">{gender}, {age}</p>
         </div>
       </div>
       <div>
@@ -27,8 +27,8 @@ const Patients = () => {
   return(
     <>
       <section className="patient-section">
-        <div className="patient-row ">
-          <h2>Patients</h2>
+        <div className="patient-row">
+          <h2 className="m-0 fs-24">Patients</h2>
           <div>
             <img src="/assets/search_FILL0_wght300_GRAD0_opsz24.svg" alt="search-icon" />
           </div>

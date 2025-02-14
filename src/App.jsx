@@ -5,6 +5,7 @@ import Patients from './components/Patients';
 import DiagnosisHistory from "./components/DiagnosisHistory";
 import DiagnosticList from "./components/DiagnosticList";
 import Profile from "./components/Profile";
+import LabResults from "./components/LabResults";
 
 import { AppContext } from "./components/AppContext";
 import { getAllPatients } from '../../api';
@@ -33,15 +34,15 @@ const App = () => {
     if(isLoading === null) load();
   }),[isLoading])
 
-  if (isLoading || patients.length === 0) {
+  if (isLoading || patients.length <= 3) {
     return <div>Loading ... </div>
   }
 
   return (
     <AppContext.Provider value={contextValue}>
-      <main>
+      <main className="main-container">
         <Navbar />
-        <div className="main-container">
+        <div className="content-container">
           <Patients />
           <div className="col-flex-1">
             <DiagnosisHistory />
@@ -49,6 +50,7 @@ const App = () => {
           </div>
           <div>
             <Profile />
+            <LabResults />
           </div>
         </div>
       </main>

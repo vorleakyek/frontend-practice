@@ -10,7 +10,7 @@ const DiagnosticList = () => {
 
   return(
     <section className="Diagnostic-list-container">
-      <h2>Diagnostic List</h2>
+      <h2 className="fs-24 m-0">Diagnostic List</h2>
       <div className="table-container">
         <table>
           <thead className="table-header">
