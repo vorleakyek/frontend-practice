@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { AppContext } from "./AppContext";
 
 const Profile = () => {
-  const { patients } = useContext(AppContext);
-  const currentPatient = patients[3];
+  const { viewPatient } = useContext(AppContext);
+  const currentPatient = viewPatient;
   const birthday = new Date(currentPatient.date_of_birth);
   const format = {year: 'numeric', month: 'long', day: 'numeric'};
   const formatedBirthday = birthday.toLocaleDateString('en-US', format);
@@ -11,7 +11,7 @@ const Profile = () => {
   return (
     <div className="profile-container">
       <div className="center">
-        <img src="/assets/Layer_2.png" alt="profile image" />
+        <img className="profile-img" src={currentPatient.profile_picture} alt="profile image" />
         <h2 className="fs-24">{currentPatient.name}</h2>
       </div>
 

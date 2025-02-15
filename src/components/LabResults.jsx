@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { AppContext } from "./AppContext";
 
 const LabResults = () => {
-  const {patients} = useContext(AppContext);
-  const currentPatient = patients[3];
+  const { viewPatient } = useContext(AppContext);
+  const currentPatient = viewPatient;
   const labResults = currentPatient["lab_results"];
 
   return (

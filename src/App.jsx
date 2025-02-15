@@ -15,7 +15,7 @@ const App = () => {
 
   const [isLoading, setIsLoading] = useState(null);
   const [patients, setPatients] = useState([]);
-  const contextValue = { patients }
+  const [viewPatient, setViewPatient] = useState(null);
 
   useEffect((()=>{
     async function load() {
@@ -34,19 +34,26 @@ const App = () => {
     if(isLoading === null) load();
   }),[isLoading])
 
-  if (isLoading || patients.length <= 3) {
+  useEffect((()=>{
+    setViewPatient(patients[3]);
+  }), [patients])
+
+  if (isLoading || !patients || !viewPatient) {
     return <div>Loading ... </div>
   }
+
+  const contextValue = { patients, viewPatient }
+  console.log(viewPatient)
 
   return (
     <AppContext.Provider value={contextValue}>
       <main className="main-container">
         <Navbar />
         <div className="content-container">
-          <div className="flex-1">
+          <div className="patient-div">
             <Patients />
           </div>
-          <div className="col-flex-1">
+          <div className="col-flex-2">
             <DiagnosisHistory />
             <DiagnosticList />
           </div>

@@ -3,10 +3,8 @@ import { AppContext } from "./AppContext";
 
 const DiagnosticList = () => {
 
-  const { patients } = useContext(AppContext);
-  const currentPatientDiagnosticList = patients[3].diagnostic_list;
-  console.log(currentPatientDiagnosticList)
-
+  const { viewPatient } = useContext(AppContext);
+  const currentPatientDiagnosticList = viewPatient.diagnostic_list;
 
   return(
     <section className="Diagnostic-list-container">

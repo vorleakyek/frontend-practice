@@ -19,13 +19,13 @@ body {
   justify-content: center;
 }
 
-.col-flex-1 {
+.col-flex-2 {
   display: flex;
   flex-direction: column;
   align-items:start;
   max-width: 766px;
   width: 100%;
-  flex: 2;;
+  flex: 2;
 }
 
 .flex-start{
@@ -173,13 +173,20 @@ body {
 
 .nav-profile {
  padding-right: 10px;
+ padding-left: 5px;
+}
+
+.patient-div{
+  max-width: 367px;
+  width:100%;
+  flex: 1;
 }
 
 .patient-section {
   max-width: 367px;
+  width:100%;
   background-color: white;
   border-radius: 16px;
-  width:100%;
 }
 
 .size-1 {
@@ -333,8 +340,8 @@ tbody tr:not(:last-child) {
 
 
 .profile-container {
-  max-width: 367px;
-  width:100%;
+  /* max-width: 367px;
+  width:100%; */
   background-color: white;
   border-radius: 16px;
   padding: 32px 0;
@@ -414,4 +421,11 @@ tbody tr:not(:last-child) {
 
 .flex-1 {
   flex: 1;
+}
+
+
+.profile-img {
+  max-width: 200px;
+  width:100%;
+  height: auto;
 }
