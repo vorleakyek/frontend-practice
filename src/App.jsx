@@ -43,12 +43,14 @@ const App = () => {
       <main className="main-container">
         <Navbar />
         <div className="content-container">
-          <Patients />
+          <div className="flex-1">
+            <Patients />
+          </div>
           <div className="col-flex-1">
             <DiagnosisHistory />
             <DiagnosticList />
           </div>
-          <div>
+          <div className="flex-1">
             <Profile />
             <LabResults />
           </div>

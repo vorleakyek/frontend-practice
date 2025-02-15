@@ -23,6 +23,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items:start;
+  max-width: 766px;
+  width: 100%;
+  flex: 2;;
 }
 
 .flex-start{
@@ -98,7 +101,7 @@ body {
 .content-container {
   display: flex;
   justify-content: space-between;
-  /* gap: 25px; */
+  gap: 16px;
   align-items: start;
   margin-top: 32px;
   margin-left: auto;
@@ -197,14 +200,10 @@ body {
   border: 1px solid white;
 }
 
-
-
 .diagnosis-history-container {
-  max-width: 766px;
   width: 100%;
   background-color: white;
   border-radius: 16px;
-  padding:20px;
 }
 
 .blood-pressure-container {
@@ -213,8 +212,9 @@ body {
   border-radius: 12px;
   opacity: 1;
   gap: 20px;
-  margin-top: 40px;
+  margin: 40px 20px 0 20px;
   padding: 16px;
+
 }
 
 .graph-container {
@@ -257,7 +257,7 @@ body {
 .info-cards-container {
   display: flex;
   gap:20px;
-  margin-top: 20px;
+  margin: 20px;
 }
 
 .resp-rate-card {
@@ -287,14 +287,13 @@ body {
   width:100%;
   background-color: white;
   border-radius: 16px;
-  padding:20px;
   margin-top: 20px;
 }
 
 .table-container {
   max-height: 200px;
   overflow-y: auto;
-  margin-top: 40px;
+  margin: 40px 20px 20px 20px;
 }
 
 .table-header {
@@ -305,6 +304,7 @@ body {
 
 table {
   border-collapse: collapse;
+  width: 100%;
 }
 
 thead {
@@ -333,7 +333,8 @@ tbody tr:not(:last-child) {
 
 
 .profile-container {
-  width: 367px;
+  max-width: 367px;
+  width:100%;
   background-color: white;
   border-radius: 16px;
   padding: 32px 0;
@@ -373,6 +374,14 @@ tbody tr:not(:last-child) {
   margin-top: 20px;
 }
 
+.mt-0 {
+  margin-top: 0;
+}
+
+.m-0 {
+  margin: 0;
+}
+
 .lab-results-container {
   background-color: white;
   max-width: 367px;
@@ -394,4 +403,15 @@ tbody tr:not(:last-child) {
 
 .lab-item-row {
   padding:16px;
+}
+
+
+.section-title{
+  font-size: 24px;
+  margin: 20px;
+}
+
+
+.flex-1 {
+  flex: 1;
 }

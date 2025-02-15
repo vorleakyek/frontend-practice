@@ -6,18 +6,25 @@ import { AppContext } from "./AppContext";
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 import {Line} from "react-chartjs-2";
 
+
 const DiagnosisHistory = () => {
   const { patients } = useContext(AppContext);
 
   const currentPatient = patients[3];
+  const currentPatientDiagnosisHistory = currentPatient.diagnosis_history[0];
+  const lastResRate = currentPatientDiagnosisHistory.respiratory_rate;
+  const lastTemp = currentPatientDiagnosisHistory.temperature;
+  const lastHeartRate = currentPatientDiagnosisHistory.heart_rate;
+  const lastSystolic = currentPatientDiagnosisHistory.blood_pressure.systolic;
+  const lastDiastolic = currentPatientDiagnosisHistory.blood_pressure.diastolic;
+
   const pastSixMonths = currentPatient.diagnosis_history.slice(0,6).reverse();
   const diastolic = pastSixMonths.map((data) => data.blood_pressure.diastolic.value);
   const systolic = pastSixMonths.map((data) => data.blood_pressure.systolic.value);
-  console.log(pastSixMonths)
 
   return(
     <div className="diagnosis-history-container">
-      <h2 className="m-0 fs-24">Diagnosis History </h2>
+      <h2 className="section-title">Diagnosis History </h2>
 
       <div className="blood-pressure-container">
         <div className="graph-container">
@@ -93,10 +100,11 @@ const DiagnosisHistory = () => {
               <p className="bold">Systolic</p>
             </div>
 
-            <p className="size-22 bold m-0">{Math.max(...systolic)}</p>
+            <p className="size-22 bold m-0">{lastSystolic.value}</p>
             <div className="flex-start">
-              <img className="mr-1" src="/assets/ArrowUp.svg" alt="uparrow-icon" />
-              <p>Higher than Average</p>
+              {lastSystolic.levels.toLowerCase() === "Lower than Average".toLowerCase() && <img className="mr-1" src="/assets/ArrowDown.svg" alt="down arrow icon" />}
+              {lastSystolic.levels.toLowerCase() === "Higher than Average".toLowerCase() && <img className="mr-1" src="/assets/ArrowUp.svg" alt="uparrow icon" />}
+              <p>{lastSystolic.levels}</p>
             </div>
           </div>
 
@@ -107,47 +115,40 @@ const DiagnosisHistory = () => {
             <p className="bold">Diastolic</p>
           </div>
 
-          <p className="size-22 bold m-0">{Math.min(...diastolic)}</p>
+          <p className="size-22 bold m-0">{lastDiastolic.value}</p>
           <div className="flex-start">
-            <img className="mr-1" src="/assets/ArrowDown.svg" alt="uparrow-icon" />
-            <p>Lower than Average</p>
+            {lastDiastolic.levels.toLowerCase() === "Lower than Average".toLowerCase() && <img className="mr-1" src="/assets/ArrowDown.svg" alt="down arrow icon" />}
+            {lastDiastolic.levels.toLowerCase() === "Higher than Average".toLowerCase() && <img className="mr-1" src="/assets/ArrowUp.svg" alt="uparrow icon" />}
+            <p>{lastDiastolic.levels}</p>
           </div>
         </div>
-
       </div>
 
       <div className="info-cards-container">
-        <div className="resp-rate-card">
-          <div>
-            <img src="/assets/respiratory_rate.svg"/>
-          </div>
-          <p className="fw-md fs-16">Respiratory Rate</p>
-          <p className="bold fs-30">20 bpm</p>
-          <p>Nomal</p>
-        </div>
-
-        <div className="tempurature-card">
-          <div>
-            <img src="/assets/temperature.svg" />
-          </div>
-          <p className="fw-md fs-16">Temperature</p>
-          <p className="bold fs-30">98.6°F</p>
-          <p>Nomal</p>
-        </div>
-
-        <div className="heart-rate-card">
-          <div>
-            <img src="/assets/HeartBPM.svg" />
-          </div>
-          <p className="fw-md fs-16">Heart Rate</p>
-          <p className="bold fs-30"> 78 bpm</p>
-          <p>Lower than Average</p>
-        </div>
-
+        <Card className="resp-rate-card" src="/assets/respiratory_rate.svg" tileName="Respiratory Rate" value={lastResRate.value} unit="bpm" levels={lastResRate.levels} />
+        <Card className="tempurature-card" src="/assets/temperature.svg" tileName="Temperature" value={lastTemp.value} unit="°F" levels={lastTemp.levels}/>
+        <Card className="heart-rate-card" src="/assets/HeartBPM.svg" tileName="Heart Rate" value={lastHeartRate.value} unit="bpm" levels={lastHeartRate.levels}/>
       </div>
-
     </div>
   )
 }
 
 export default DiagnosisHistory;
+
+
+const Card = (props) => {
+  return (
+    <div className={props.className}>
+      <div>
+        <img src={props.src} />
+      </div>
+      <p className="fw-md fs-16">{props.tileName}</p>
+      <p className="bold fs-30 mt-0">{props.value} {props.unit}</p>
+      <div className="flex-start">
+        {props.levels.toLowerCase() === "Lower than Average".toLowerCase() && <img className="mr-1" src="/assets/ArrowDown.svg" alt="down arrow icon" />}
+        {props.levels.toLowerCase() === "Higher than Average".toLowerCase() && <img className="mr-1" src="/assets/ArrowUp.svg" alt="uparrow icon" />}
+        <p className="m-0">{props.levels}</p>
+      </div>
+    </div>
+  )
+}
